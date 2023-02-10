@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yukie Matsuyama | Contact</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="../images/logo_phone.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+<body> 
+    <header id="header">
+        <div class="header_wrap">
+            <nav class="pc_nav">
+                <ul>
+                    <li><a href="../index.html">Top</a></li>
+                    <li><a href="../index.html#Service">Service</a></li>
+                    <li><a href="../work/index.html">Work</a></li>
+                    <li><a href="../index.html#About">About me</a></li>
+                    <li><a href="../index.html#Contact">Contact</a></li>                
+                </ul>
+            </nav>
+            <div class="sp_btn"><span></span></div>
+            <nav class="sp_nav">
+                <ul>
+                    <li><a href="../index.html">Top</a></li>
+                    <li><a href="../index.html#Service">Service</a></li>
+                    <li><a href="../work/index.html">Work</a></li>
+                    <li><a href="../index.html#About">About me</a></li>
+                    <li><a href="../index.html#Contact">Contact</a></li>                
+                </ul>
+            </nav>
+
+            <div class="title_contact">
+                <h1 class="welcome">WELCOME</h1>
+                <h1 class="to">To</h1>
+                <h1 class="my portfolio">MY PORTFOLIO</h1>
+
+            </div>
+        </div>                
+    </header>
+
+    <div class="title_message">
+            <p>当ポートフォリオサイトにご訪問いただき、誠にありがとうございます。<br>
+                制作のご依頼やご相談、ご不明な点等ございましたらお気軽にお問い合わせください。<br>
+                3営業日以内にご連絡をさせていただきます。
+            </p>
+    </div>
+    
+    <div class="contact_form">
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScaApGSO9bdOn1BofIhVu6nP8V7U3Ebzhf5_bQBjIhwgxiO7Q/formResponse"method="post">
+        
+            <div class="item"> 
+                <label class="label">お名前</label>
+                <input type="text" class="input" name="entry.990772962" required placeholder="Name">
+            </div>
+            <div class="item">
+                <label class="label">メールアドレス</label>
+                <input type="text" class="input" name="entry.1496794145" placeholder="Email" required>
+            </div>
+            <div class="item">
+                <label class="label">お問い合わせ内容</label>
+                <textarea name="entry.129213590" placeholder="Message" class="input"></textarea>
+            </div>
+
+            <div class="button_area">
+                <input type="submit" value="送信">
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer_wrap">
+            <p><small class="copy">&copy; yukie matsuyama</small></p>
+        </div>
+    </footer>
+
+    
+
+
+<!-- JavaScript -->
+
+<script> 
+
+
+    $(function(){
+    
+        // ハンバーガーメニュー
+        $('.sp_btn,.sp_nav li').on('click', function () {
+                     $('.sp_nav').fadeToggle();
+                     $('.sp_btn').toggleClass('open');
+    
+        });
+    
+    });
+
+</script>    
+</body>
+</html>

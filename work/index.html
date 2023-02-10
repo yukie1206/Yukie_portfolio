@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="まつやまゆきえのポートフォリオサイト。サービス内容を掲載">
+    <title>Yukie Matsuyama | Work</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="icon" type="images/png" href="../images/logo_phone.png">
+</head>
+<body>
+
+    <section id="head">
+        <div class="header_wrap">
+            <nav class="pc_nav">
+                <ul>
+                    <li><a href="../index.html">Top</a></li>
+                    <li><a href="../index.html#Service">Service</a></li>
+                    <li><a href="#head">Work</a></li>
+                    <li><a href="../index.html#About">About me</a></li>
+                    <li><a href="../index.html#Contact">Contact</a></li>                
+                </ul>
+            </nav>   
+            <div class="sp_btn"><span></span></div>
+            <nav class="sp_nav">
+                <ul>
+                    <li><a href="../index.html">Top</a></li>
+                    <li><a href="../index.html#Service">Service</a></li>
+                    <li><a href="#head">Work</a></li>
+                    <li><a href="../index.html#About">About me</a></li>
+                    <li><a href="../index.html#Contact">Contact</a></li>                
+                </ul>
+            </nav>
+            
+            <div class="service_wrap">
+                <div class="work 1">
+                    <a href="../work1/index.html"><img src="../images/cosme.jpg" alt="化粧品バナー" class="photo"></a>
+                </div>
+                <div class="work 2">
+                    <a href="../work2/index.html"><img src="../images/camp.jpg" alt="キャンプバナー" class="photo"></a>
+                </div>
+                <div class="work 3">
+                    <a href="../work3/index.html"><img src="../images/school.jpg" alt="スクールバナー" class="photo"></a>
+                </div>
+                <div class="work 4">
+                    <a href="../work4/index.html"><img src="../images/peaplegood.jpg" alt="コーポレートサイト_peaplegood様" class="photo"></a>
+                </div>
+                <div class="work 5">
+                    <a href="../work5/index.html"><img src="../images/life.jpg" alt="コーポレートサイト_LIFE様"  class="photo"></a>
+                </div>
+                <div class="work 6">
+                    <a href="../work6/index.html"><img src="../images/design_cafe.jpg" alt="コーポレートサイト_DESIGNCAFE様" class="photo"></a>
+                </div>
+            </div>    
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer_wrap">
+            <p><small class="copy">&copy; yukie matsuyama</small></p>
+        </div>
+    </footer>
+
+        <!-- JavaScript -->
+
+<script>   
+    $(function(){
+    
+        // ハンバーガーメニュー
+        $('.sp_btn,.sp_nav li').on('click', function () {
+                     $('.sp_nav').fadeToggle();
+                     $('.sp_btn').toggleClass('open');
+    
+        });
+    
+    });
+    
+ </script>
+</body>
+</html>

@@ -1,0 +1,831 @@
+@charset "utf-8";
+/* リセット */
+html,
+body,
+header,
+footer,
+main,
+section,
+h1,
+h2,
+h3,
+ul,
+li,
+p,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    color: #14171a;
+    font-family: "DNP 秀英にじみ明朝 Std L", YuMincho, "Hiragino Mincho ProN W3",
+        "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝",
+        "ＭＳ 明朝", serif;
+    font-feature-settings: "palt";
+}
+
+a {
+    /*下線を消す*/
+    text-decoration: none;
+    /*色を消す*/
+    color: inherit;
+    transition: 0.3s;
+    /* 変化するスピード 動き*/
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+ul {
+    /*左の「・」を消す*/
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    border: none;
+}
+/* 上記cssのリセット */
+
+/* ローディング画面の設定 */
+
+#loading_wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    transition: all 0.3s;
+    z-index: 9999;
+    margin: 0 auto;
+
+}
+
+.loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    
+}
+
+.loader span{
+    position: absolute;
+    animation: animate 5s linear;
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.loader span:nth-child(1){
+    animation-direction: normal;
+    border-radius: 73% 27% 64% 36% / 43% 74% 26% 57% ;
+    border: 2px solid #f36d83ea;
+}
+
+.loader span:nth-child(2){
+    animation-direction: reverse;
+    border-radius: 73% 27% 70% 30% / 30% 30% 70% 70% ;
+    border: 2px solid #3625cf;
+}
+.loader span:nth-child(3){
+    animation-delay: 1s;
+    border-radius: 20% 80% 34% 66% / 73% 23% 77% 27% ;
+    border: 2px solid #ee5d43;
+}
+.loader span:nth-child(4){
+    animation-direction: reverse;
+    border-radius: 57% 43% 51% 49% / 52% 51% 49% 48%  ;
+    border: 2px solid #29d671;
+}
+
+.loader span:nth-child(5){
+    animation-delay: 1s;
+    border-radius: 64% 36% 51% 49% / 51% 63% 37% 49% ;
+}
+
+.completed {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+.Now{
+    text-align: center;
+}
+
+
+
+
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
+.Now{
+    color: #14171a;
+    font-size: 2.3rem;
+    font-weight: 500;
+}
+
+
+
+
+/*スクロールダウン全体の場所*/
+.scrolldown {
+    /*描画位置*/
+    position: absolute;
+    left: 58%;
+    bottom: 10px;
+    /*全体の高さ*/
+    height: 50px;
+  }
+  
+  /*Scrollテキストの描写*/
+  .scrolldown span {
+    /*描画位置*/
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    /*テキストの形状*/
+    color:#14171a;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    /*縦書き設定*/
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+  }
+  
+  /* 線の描写 */
+  .scrolldown::before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    /*丸の形状*/
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #14171a;
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+    animation: circlemove 1.6s ease-in-out infinite,
+      cirlemovehide 1.6s ease-out infinite;
+  }
+  
+  /*下からの距離が変化して丸の全体が上から下に動く*/
+  @keyframes circlemove {
+    0% {
+      bottom: 60px;
+    }
+    100% {
+      bottom: -5px;
+    }
+  }
+  
+  /* 線の描写 */
+  .scrolldown:after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /*線の形状*/
+    width: 2px;
+    height: 60px;
+    background: #eee;
+  }
+  
+  /*========= レイアウトのためのCSS ===============*/
+  
+
+  
+  #scroll {
+    width: 100%;
+    position: relative;
+    margin-bottom: 150px;
+    margin-top: 20px;
+
+  }
+  
+  #scroll:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    filter: blur(1px) brightness(0.7);
+  }
+  
+  #Service {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  /* 桜舞う */
+
+  .cherry-card {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fa8095;
+    transition: all 0.6s;
+  }
+  
+  
+  /* 桜の花びらのスタイル */
+  .petal {
+    position: absolute;
+    background-color: #ffc0cb; /* 花びらの色 */
+    border-radius: 150% 0 150% 0;
+    animation: animate-petal 6s linear;
+  }
+  
+  .petal::after {
+    content: "";
+    position: absolute;
+    top: -14%;
+    left: -10%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #ffc0cb;
+    border-radius: 150% 0 150% 0;
+    transform: rotate(15deg);
+  }
+  
+  /* 花びらが降るアニメーション */
+  @keyframes animate-petal {
+    0% {
+      top: 0;
+      transform: rotate(0deg);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      top: 100vh;
+      transform: rotate(2000deg);
+    }
+  }
+
+
+.pc_nav{
+    margin-top: 90px;
+    margin-left: 5%;
+    width: 20%;
+}
+
+.pc_nav li{
+    margin-bottom: 15px;
+    font-family: "Monotype Corsiva";
+    font-size: 23px;
+}
+
+.header_wrap{
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+.logo_phone{
+    display: none;
+}
+
+
+.logo_rainbow{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: block;
+    width: 450px;
+}
+
+.sub_title{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 100px;
+    line-height: 1.75;
+}
+
+
+.service_wrap{
+    text-align: center;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    margin-bottom: 50px;
+    padding: 5%;
+}
+
+.finger_service{
+   text-align: left;
+
+}
+.service_logo{
+    width: 300px;
+}
+
+.service ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.service_contents{
+    padding-right: 3%;
+    padding-left: 3%;
+    width: 30%;
+}
+
+.service_picture{
+    width: 224px;
+    height: 224px;
+}
+
+.title{
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
+.explanation{
+    font-size: 16px;
+    text-align: left;
+    margin-bottom:50px;
+    line-height: 1.75;
+}
+
+.work_wrap{
+    max-width: 1000px;
+    margin-bottom: 90px;
+}
+
+.message_phone{
+    display: none;
+}
+
+.message{
+    margin-top: 30px;
+    margin-left: 60px;
+    line-height: 1.75;
+}
+
+
+.pc{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 90px;
+}
+
+.work_logo{
+    width: 300px;
+}
+
+.slider{
+    background: url(../images/pc.png) no-repeat 0 0;
+    background-size: 100%;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    width: 773px;
+    height: 479px;
+
+}
+
+#contents_1{
+    margin: 0 auto;
+    text-align: center;
+    top: 30px;
+    width: 600px;
+    height: 400px;
+    padding: 0;
+
+}
+
+.finger_work{
+    display: flex;
+    text-align: left;
+    margin-left: 5%;
+}
+
+.slider{
+    margin-bottom: 100px;
+}
+
+.button{
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.finger_about{
+    margin-left: 5%;
+}
+
+
+.jibun{
+    width: 30%;
+    margin-left: 5%;
+
+}
+
+.about{
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.jp_yukie{
+    display: block;
+    text-align: left;
+    letter-spacing: 15px;
+    font-size: 27px;
+    line-height: 1.75;
+}
+
+.en_yukie{
+    width: 390px;
+}
+
+.introduction{
+    margin-left: 5%;
+    margin-bottom: 90px;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+.finger_contact{
+    margin-bottom: 80px;
+    margin-left: 5%;
+}
+
+.letter{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 230px;
+    width: 700px;
+}
+
+footer{
+    background-image: url(../images/background.jpg);
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer p{
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.sp_nav,
+.sp_btn{
+    display: none;
+}
+
+.whole_container{
+    position: static;
+    overflow: auto;
+}
+
+.chapter_container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+.scrollable{
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
+.chapter{
+    position: absolute !important;
+    display: block;
+    bottom: 8%;
+    right: 5%;
+    width: 580px;
+    height: 500px;
+    transition: 2.5s;
+    
+}
+
+.list{
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 280px;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #000;
+    font: 700 26px;
+    text-align: right;
+    line-height: 1.7;
+}
+
+.animater .chapter{
+    transform: rotate(5deg);
+}
+
+.container{
+    display: block;
+    bottom: 0;
+    right: 0;
+    border: 5px solid #000;
+    width: 300px;
+    height: 444px;
+    background: #000;
+    cursor: pointer;
+    overflow: hidden !important;
+    }
+
+@media screen  and (max-width:1100px) {
+    .pc_nav{
+        display: none;
+    }   
+    .sp_btn{
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        height: 33px;
+        z-index: 9999;
+        /* positionとセットで使用 数が大きものが上に来る　順番を指定できる */
+    } 
+    .sp_btn span{
+        background: #000;
+        width: 33px;
+        height: 3px;
+        display: block;
+         /* 親要素にポジション要素をもっていたら基準となる */
+        position: relative;
+        top: 10px;
+        transition: 0.3s;
+        
+    }
+    /* 疑似要素　二次要素 */
+    .sp_btn span::before,.sp_btn span::after{
+        content:'' ;       
+        background: #000;
+        width: 33px;
+        height: 3px;
+        display: block;
+        position: absolute;
+        transition: 0.3s;
+        /*変化前のところに動きをかく  */
+    }
+
+    .sp_btn span::before{
+        bottom: 10px;    
+    }
+
+    .sp_btn span::after{
+        top: 10px;    
+    }
+
+    .open span{
+        background: transparent;
+
+    }
+
+    .open span::before{
+        bottom: 0px;
+        transform: rotate(45deg);    
+    }
+
+    .open span::after{
+        top: 0px;
+        transform: rotate(135deg);    
+    }
+
+    .sp_nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        /* 画面幅いっぱいにしている */
+        background: rgba(0,0,0,0.8);
+
+    }
+
+    .sp_nav ul{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .sp_nav ul li{
+        color: #fff;
+        font-size: 22px;
+        text-align: center;
+        padding: 10px 0;
+        font-family:  "Monotype Corsiva";
+    }
+
+    .header_wrap{
+        display: block;
+    }
+
+
+    .logo_rainbow{
+        margin: 0 auto;
+    }
+
+    .logo_rainbow{
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+    }
+
+    .introduction{
+        font-size: 1.5vw;
+    }
+
+    .en_yukie{
+        width: 300px;
+    }
+
+    .jp_yukie{
+        font-size: 20px;
+    }
+
+    .form{
+        width: 600px;
+    } 
+}
+
+@media screen and (max-width:767px){
+
+.sp_btn{
+    width: 8.5vw;
+}
+
+
+.logo{
+    display: none;
+}
+
+.logo_phone{
+    display: block;
+    text-align: center;
+}
+
+.logo_rainbow_phone{
+    margin-top: 85px;
+    margin-bottom: 80px;
+}
+
+.matsuyama_phone{
+    margin-bottom: 50px;
+}
+
+.sub_title_phone{
+    line-height: 1.75;
+    font-weight: 100;
+    font-size: 24px;
+    margin-bottom: 70px;
+}
+
+.service_contents{
+    width: 100%;
+}
+
+.finger_service{
+    text-align: center;
+}
+
+
+.service ul{
+    display: block;
+}
+
+.finger_work{
+    display: block;
+    text-align: center;
+}
+
+.work_logo{
+    margin-bottom: 50px;
+}
+
+
+.message{
+    display: none;
+}
+
+.message_phone{
+    line-height: 1.75;
+    display: block;
+    width: 17em;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about{
+    display: block;
+    margin: 0 auto;
+    padding: 5%;
+}
+
+.finger_about{
+    text-align: center;
+}
+
+.about_logo{
+    margin-bottom: 50px;
+
+}
+
+.jibun{
+    margin: 0 auto;
+    width: 200px;
+    margin-bottom: 50px;
+}
+
+.introduction{
+    margin: 0 auto;
+    margin-bottom: 100px;
+    
+}
+
+.finger_contact{
+    text-align: center;
+}
+
+.letter{
+    width: 300px;
+    margin-bottom: 100px;
+}
+
+footer{
+    padding: 20px;
+}
+    
+}
+
+@media screen and (max-width:480px){
+
+#loading_wrapper{
+    display: block;
+}
+
+.loader{
+    width: 290px;
+    height: 290px;
+}
+
+
+.slider{
+    background: url(../images/pc_phone.png) no-repeat 0 0;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    /* width: 300px;
+    height: 300px; */
+}
+
+#contents_1{
+    width: 180px;
+    height: 160px;
+    top: 14px;
+    margin-left: 65px;
+
+
+}
+
+
+}

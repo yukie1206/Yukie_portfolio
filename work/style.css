@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* リセット */
+html,
+body,
+header,
+footer,
+main,
+section,
+h1,
+h2,
+h3,
+ul,
+li,
+p,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    color: #14171a;
+    font-family: "DNP 秀英にじみ明朝 Std L", YuMincho, "Hiragino Mincho ProN W3",
+        "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝",
+        "ＭＳ 明朝", serif;
+    font-feature-settings: "palt";
+}
+
+a {
+    /*下線を消す*/
+    text-decoration: none;
+    /*色を消す*/
+    color: inherit;
+    transition: 0.3s;
+    /* 変化するスピード 動き*/
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+ul {
+    /*左の「・」を消す*/
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    border: none;
+}
+/* 上記cssのリセット */
+
+
+.pc_nav{
+    margin-top: 90px;
+    margin-left: 5%;
+    width: 20%;
+}
+
+.pc_nav li{
+    margin-bottom: 15px;
+    font-family: "Monotype Corsiva";
+    font-size: 23px;
+}
+
+.service_wrap{
+
+    display: grid;
+    gap: 50px;
+    grid-template-columns:repeat(2,1fr);
+    margin-right: 5%;
+    width: 75%;
+    max-width: 1000px;
+    margin: 0 auto;
+   
+}
+
+.photo{
+    width: 300px;
+}
+
+.header_wrap{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.service_wrap{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+footer{
+    background-image: url(../images/background.jpg);
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer p{
+    font-size: 15px;
+}
+
+.sp_nav,
+.sp_btn{
+    display: none;
+}
+
+@media screen  and (max-width:1100px) {
+    .pc_nav{
+        display: none;
+    }   
+    .sp_btn{
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        height: 2px;
+        z-index: 9999;
+        /* positionとセットで使用 数が大きものが上に来る　順番を指定できる */
+    } 
+    .sp_btn span{
+        background: #000;
+        width: 28px;
+        height: 2px;
+        display: block;
+         /* 親要素にポジション要素をもっていたら基準となる */
+        position: relative;
+        top: 10px;
+        transition: 0.3s;
+        
+    }
+    /* 疑似要素　二次要素 */
+    .sp_btn span::before,.sp_btn span::after{
+        content:'' ;       
+        background: #000;
+        width: 28px;
+        height: 2px;
+        display: block;
+        position: absolute;
+        transition: 0.3s;
+        /*変化前のところに動きをかく  */
+    }
+
+    .sp_btn span::before{
+        bottom: 8px;    
+    }
+
+    .sp_btn span::after{
+        top: 8px;    
+    }
+
+    .open span{
+        background: transparent;
+
+    }
+
+    .open span::before{
+        bottom: 0px;
+        transform: rotate(45deg);    
+    }
+
+    .open span::after{
+        top: 0px;
+        transform: rotate(135deg);    
+    }
+
+    .sp_nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        /* 画面幅いっぱいにしている */
+        background: rgba(0,0,0,0.8);
+
+    }
+
+    .sp_nav ul{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .sp_nav ul li{
+        color: #fff;
+        font-size: 22px;
+        text-align: center;
+        padding: 10px 0;
+        font-family:  "Monotype Corsiva";
+    }
+
+}
+
+@media screen and (max-width:767px){
+
+    .sp_btn{
+        width: 8.5vw;
+    }
+}
+
+@media screen and (max-width:479px) {
+   .service_wrap{
+    margin-top: 100px;
+   } 
+    
+}
+
+
+
+
+
