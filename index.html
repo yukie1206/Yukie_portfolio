@@ -21,17 +21,12 @@
 <body>
     
     <!-- ローディング画面 -->
-    <div id="loading_wrapper">
-        <div class="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <h2 class="Now">Now Loading...</h2>
+    <div id="loading">
+        <div class="kvArea" id="loading_box">
+          <div class="img_box"><img src="images/loading_rainbow.png" alt="" class="fadeUp"></div>
         </div>
-    </div>
-
+      </div>
+    
     <header id="header">
 
         <div class="header_wrap">
@@ -42,7 +37,7 @@
                     <li><a href="#Service">Service</a></li>
                     <li><a href="work/index.html">Work</a></li>
                     <li><a href="#About">About me</a></li>
-                    <li><a href="#Contact">Contact</a></li>                
+                    <li><a href="contact/index.html">Contact</a></li>                
                 </ul>
             </nav>
             <div class="sp_btn"><span></span></div>
@@ -52,7 +47,7 @@
                     <li><a href="#Service">Service</a></li>
                     <li><a href="work/index.html">Work</a></li>
                     <li><a href="#About">About me</a></li>
-                    <li><a href="#Contact">Contact</a></li>                
+                    <li><a href="contact/index.html">Contact</a></li>                
                 </ul>
             </nav>
 
@@ -76,9 +71,9 @@
         </div>                
     </header>
 
-    <header id="scroll">
+    <section id="scroll">
         <div class="scrolldown"><span>Scroll</span></div>
-      </header>
+    </section>
 
 
     <section id="Service" >
@@ -124,29 +119,9 @@
         <div class="layer" id="contents_6"></div>
     </div>
 
-    <!-- <div class="whole_container">
-        <div class="chapter_container">
-            <div class="chaper">
-                <ul class="list">
-                    <li><a href="#" data-character="Nancy">Jessica Alba</a></li>
-                    <li><a href="#" data-character="Marv">Mickey Rourke</a></li>
-                    <li><a href="#" data-character="Dwight">Josh Brolin</a></li>
-                    <li><a href="#" data-character="Johnny">Joseph Gordon-Levitt</a></li>
-                </ul>
-
-                <div class="container" style="padding: 0px"></div>
-                <div class="scrollable">
-                    <div class="vegas-content" style="overflow: visible; padding: 0px;"></div>
-                </div>
-            </div>
-        </div>
-
-    </div> -->
-
-    
-        <h3 class="button">
-                <img src="images/button.png" alt="もっと見る" class="button">    
-        </h3>
+    <div class="button">
+        <a href="work/index.html"><span>もっと見る</span></a>
+    </div>
             
 
     <section id="About">
@@ -175,6 +150,20 @@
                     という思いで制作しました。<br>
                     制作の依頼だけでなく子育て相談、働き方に困ってるママさんたちとも<br>
                     繋がりたいので、お気軽にご連絡ください。
+                </p>
+                <p class="introduction_phone">
+                    <img src="images/yukie_matsuyama.png" alt="松山ゆきえ" class="en_yukie">
+                    <span class="jp_yukie">まつやまゆきえ</span><br><br>
+                    福岡県出身。２児の母。<br>小学校教諭として勤める。出産をきっかけに退職。<br>
+                    働き方に迷いながら、WEBデザイナーを目指す。<br>
+                    語学を独学で学びTOEIC950点取得、フランス、ドイツへ留学。フランス語、ドイツ語を身につける。<br>
+                    小学校教諭として特別支援教育に力を入れ、“困った子”に対する子育て支援も行う。
+                    <br>小学校教諭、幼稚園教諭、保育士資格保有。<br>
+                    育児の傍ら、簿記２級、宅建の資格を独学にて取得。<br>
+                    趣味は映画鑑賞と旅行です。<br><br>
+                    人生何とかなるがモットーで、日々楽しく過ごしています。<br>
+                    ロゴにある虹はそれぞれの方のもっている色を引き出すお手伝いが私にできたらという思いで制作しました。<br>
+                    制作の依頼だけでなく子育て相談、働き方に困ってるママさんたちとも繋がりたいので、お気軽にご連絡ください。
                 </p>
             </div>   
          </div>
@@ -215,9 +204,12 @@ setTimeout(function() {
   $('#loading_wrapper').fadeOut(600);
 }, 5000); // 5秒後にfadeOut処理
 
+$(window).on('load',function(){
+  $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+  $("#loading_box").delay(1200).fadeOut('slow');//ローディング画像を1.2秒（1200ms）待機してからフェードアウト
+});
+
 $(function () {
-
-
 
     // ハンバーガーメニュー
     $('.sp_btn,.sp_nav li').on('click', function () {

@@ -52,96 +52,54 @@ img {
 
 /* ローディング画面の設定 */
 
-#loading_wrapper{
+
+/* Loading画面 */
+#loading {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    transition: all 0.3s;
-    z-index: 9999;
-    margin: 0 auto;
-
-}
-
-.loader{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    position: relative;
-    width: 350px;
-    height: 350px;
-    
-}
-
-.loader span{
-    position: absolute;
-    animation: animate 5s linear;
-    display: block;
-    text-align: center;
+    bottom: 0;
     width: 100%;
     height: 100%;
-}
-
-.loader span:nth-child(1){
-    animation-direction: normal;
-    border-radius: 73% 27% 64% 36% / 43% 74% 26% 57% ;
-    border: 2px solid #f36d83ea;
-}
-
-.loader span:nth-child(2){
-    animation-direction: reverse;
-    border-radius: 73% 27% 70% 30% / 30% 30% 70% 70% ;
-    border: 2px solid #3625cf;
-}
-.loader span:nth-child(3){
-    animation-delay: 1s;
-    border-radius: 20% 80% 34% 66% / 73% 23% 77% 27% ;
-    border: 2px solid #ee5d43;
-}
-.loader span:nth-child(4){
-    animation-direction: reverse;
-    border-radius: 57% 43% 51% 49% / 52% 51% 49% 48%  ;
-    border: 2px solid #29d671;
-}
-
-.loader span:nth-child(5){
-    animation-delay: 1s;
-    border-radius: 64% 36% 51% 49% / 51% 63% 37% 49% ;
-}
-
-.completed {
-    opacity: 0;
-    visibility: hidden;
+    z-index: 99999;
+    background: #fff;
+    text-align: center;
+  }
+  #loading_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #loading .kvArea {
+    width: 100%;
+  }
+  #loading .kvArea .img_box {
+    text-align: center;
+  }
+  #loading .kvArea .img_box img {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+  }
+  .fadeUp {
+    animation-name: fadeUpAnime;
+    animation-duration: 55s;
+    animation-delay: 155s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+  }
+  @keyframes fadeUpAnime {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
   }
 
-.Now{
-    text-align: center;
-}
-
-
-
-
-@keyframes animate{
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-
-}
-
-.Now{
-    color: #14171a;
-    font-size: 2.3rem;
-    font-weight: 500;
-}
 
 
 
@@ -149,11 +107,12 @@ img {
 /*スクロールダウン全体の場所*/
 .scrolldown {
     /*描画位置*/
-    position: absolute;
+    position: relative;
     left: 58%;
-    bottom: 10px;
+    bottom: 100px;
     /*全体の高さ*/
     height: 50px;
+    margin-top: -100px;
   }
   
   /*Scrollテキストの描写*/
@@ -219,7 +178,6 @@ img {
   #scroll {
     width: 100%;
     position: relative;
-    margin-bottom: 150px;
     margin-top: 20px;
 
   }
@@ -254,7 +212,9 @@ img {
     color: #fa8095;
     transition: all 0.6s;
   }
-  
+
+
+
   
   /* 桜の花びらのスタイル */
   .petal {
@@ -415,6 +375,65 @@ img {
 
 }
 
+
+/*もっと見る*/
+.button a {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 225px;
+    padding: 10px 0px 10px 25px;
+    color: #313131;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.button a:before, .button a:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+}
+.button a:before {
+  width: 0.5rem;
+  height: 0.5rem;
+  left: 1.1rem;
+  border-top: solid 2px #e8e0e0;
+  border-right: solid 2px #e8e0e0;
+  z-index: 2;
+  transform: translateY(-50%) rotate(45deg);
+  transition: all 0.3s;
+}
+.button a:after {
+  left: 0;
+  background: #14171a;
+  z-index: 1;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 4rem;
+  transform: translateY(-50%);
+  transition: all 0.5s;
+}
+.button a span {
+  position: relative;
+  transition: all 0.3s;
+  z-index: 3;
+}
+
+.button a:hover span {
+  color: #e8e0e0;
+}
+.button a:hover:before {
+  left: 2rem;
+}
+.button a:hover:after {
+  right: 0;
+  width: 100%;
+}
+
 #contents_1{
     margin: 0 auto;
     text-align: center;
@@ -481,6 +500,10 @@ img {
     line-height: 1.75;
 }
 
+.introduction_phone{
+    display: none;
+}
+
 
 .finger_contact{
     margin-bottom: 80px;
@@ -497,6 +520,7 @@ img {
 
 footer{
     background-image: url(../images/background.jpg);
+    background-repeat: repeat-x;
     text-align: center;
     padding: 30px 0;
 }
@@ -623,11 +647,13 @@ footer p{
     .open span::before{
         bottom: 0px;
         transform: rotate(45deg);    
+        background: #fff;
     }
 
     .open span::after{
         top: 0px;
         transform: rotate(135deg);    
+        background: #fff;
     }
 
     .sp_nav{
@@ -638,6 +664,7 @@ footer p{
         height: 100vh;
         /* 画面幅いっぱいにしている */
         background: rgba(0,0,0,0.8);
+        z-index: 100;
 
     }
 
@@ -655,6 +682,11 @@ footer p{
         padding: 10px 0;
         font-family:  "Monotype Corsiva";
     }
+
+    .scrolldown{
+        left: 50%;
+    }
+    
 
     .header_wrap{
         display: block;
@@ -694,7 +726,6 @@ footer p{
     width: 8.5vw;
 }
 
-
 .logo{
     display: none;
 }
@@ -717,7 +748,7 @@ footer p{
     line-height: 1.75;
     font-weight: 100;
     font-size: 24px;
-    margin-bottom: 70px;
+    margin-bottom: 150px;
 }
 
 .service_contents{
@@ -779,7 +810,6 @@ footer p{
 .introduction{
     margin: 0 auto;
     margin-bottom: 100px;
-    
 }
 
 .finger_contact{
@@ -799,6 +829,7 @@ footer{
 
 @media screen and (max-width:480px){
 
+
 #loading_wrapper{
     display: block;
 }
@@ -806,6 +837,14 @@ footer{
 .loader{
     width: 290px;
     height: 290px;
+}
+
+#scroll{
+    margin-top: 30px;
+}
+
+.scrolldown{
+    margin-top: 0px;
 }
 
 
@@ -816,6 +855,15 @@ footer{
     text-align: center;
     /* width: 300px;
     height: 300px; */
+}
+
+.introduction{
+    display: none;
+}
+
+.introduction_phone{
+    display: block;
+    font-size: 13px;
 }
 
 #contents_1{
